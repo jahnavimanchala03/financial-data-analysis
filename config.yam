@@ -1,0 +1,31 @@
+# Configuration for Financial Data Analytics Platform
+
+# General settings
+environment: development
+
+# Data source settings
+data_source_type: yahoo_finance
+symbols:
+  - SPY
+  - AAPL
+  - MSFT
+  - AMZN
+  - GOOGL
+start_date: 2024-03-01
+end_date: 2024-04-01
+interval: 1d
+
+# Processing settings
+outlier_method: iqr
+output_format: parquet
+enable_validation: true
+validation_threshold: 90.0  
+enable_monitoring: true
+
+# Partition settings
+partition_by: date
+
+# Cloud resource settings
+cloud_resources:
+  create_bucket: true
+  setup_lifecycle: true

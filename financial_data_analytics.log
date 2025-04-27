@@ -1,0 +1,169 @@
+2025-04-21 14:00:08,528 - __main__ - INFO - Using default configuration
+2025-04-21 14:00:13,428 - utils.s3_utils - ERROR - Error checking bucket existence: An error occurred (403) when calling the HeadBucket operation: Forbidden
+2025-04-21 14:00:17,263 - utils.s3_utils - ERROR - Error setting up S3 lifecycle policy: An error occurred (AccessDenied) when calling the PutBucketLifecycleConfiguration operation: Access Denied
+2025-04-21 14:00:17,264 - etl.extractors.base_extractor - INFO - Initialized MarketDataExtractor for source: market_data
+2025-04-21 14:00:17,264 - etl.transformers.data_cleaner - INFO - Initialized DataCleaner
+2025-04-21 14:00:17,267 - etl.loaders.s3_loader - INFO - Initialized S3Loader for bucket: financial-data-analytics
+2025-04-21 14:00:17,269 - __main__ - INFO - Initialized Financial Data Pipeline
+2025-04-21 14:00:17,270 - __main__ - INFO - Starting Financial Data Pipeline
+2025-04-21 14:00:17,270 - __main__ - INFO - Extracting market data...
+2025-04-21 14:00:17,270 - etl.extractors.market_data - INFO - Extracting market data from market_data using yahoo_finance
+2025-04-21 14:00:17,274 - yfinance - INFO - Failed to create TzCache, reason: Error creating TzCache folder: 'C:\Users\jahna\AppData\Local\py-yfinance' reason: [WinError 183] Cannot create a file when that file already exists: 'C:\\Users\\jahna\\AppData\\Local\\py-yfinance'. TzCache will not be used. Tip: You can direct cache to use a different location with 'set_tz_cache_location(mylocation)'
+2025-04-21 14:00:22,609 - __main__ - INFO - Cleaning and transforming data...
+2025-04-21 14:00:22,610 - etl.transformers.data_cleaner - INFO - Cleaning market data with shape (95, 7)
+2025-04-21 14:00:22,622 - etl.transformers.data_cleaner - INFO - Handled missing values: 0 before, 0 after
+2025-04-21 14:00:22,637 - etl.transformers.data_cleaner - INFO - Capped 7 outliers in Volume using IQR method
+2025-04-21 14:00:22,638 - etl.transformers.data_cleaner - INFO - Renamed columns: {'symbol': 'ticker'}
+2025-04-21 14:00:22,640 - etl.transformers.data_cleaner - INFO - Converted date to datetime
+2025-04-21 14:00:22,642 - etl.transformers.data_cleaner - INFO - Converted volume to integer
+2025-04-21 14:00:22,642 - etl.transformers.data_cleaner - INFO - Cleaned data shape: (95, 7)
+2025-04-21 14:00:22,643 - etl.transformers.data_cleaner - INFO - Engineering additional features
+2025-04-21 14:00:22,687 - etl.transformers.data_cleaner - INFO - Added 12 engineered features
+2025-04-21 14:00:22,687 - __main__ - INFO - Loading data to S3...
+2025-04-21 14:00:25,083 - etl.loaders.s3_loader - ERROR - Error loading Parquet to S3: An error occurred (AccessDenied) when calling the PutObject operation: Access Denied
+2025-04-21 14:00:25,084 - __main__ - ERROR - Pipeline failed: Failed to load data to S3
+2025-04-21 14:00:25,085 - __main__ - INFO - Pipeline completed in 7.82 seconds
+2025-04-21 14:03:35,291 - __main__ - INFO - Using default configuration
+2025-04-21 14:03:37,428 - utils.s3_utils - ERROR - Error checking bucket existence: An error occurred (403) when calling the HeadBucket operation: Forbidden
+2025-04-21 14:03:39,321 - utils.s3_utils - ERROR - Error setting up S3 lifecycle policy: An error occurred (AccessDenied) when calling the PutBucketLifecycleConfiguration operation: Access Denied
+2025-04-21 14:03:39,325 - etl.extractors.base_extractor - INFO - Initialized MarketDataExtractor for source: market_data
+2025-04-21 14:03:39,325 - etl.transformers.data_cleaner - INFO - Initialized DataCleaner
+2025-04-21 14:03:39,326 - etl.loaders.s3_loader - INFO - Initialized S3Loader for bucket: financial-data-analytics
+2025-04-21 14:03:39,331 - __main__ - INFO - Initialized Financial Data Pipeline
+2025-04-21 14:03:39,333 - __main__ - INFO - Starting Financial Data Pipeline
+2025-04-21 14:03:39,333 - __main__ - INFO - Extracting market data...
+2025-04-21 14:03:39,334 - etl.extractors.market_data - INFO - Extracting market data from market_data using yahoo_finance
+2025-04-21 14:03:40,263 - __main__ - INFO - Cleaning and transforming data...
+2025-04-21 14:03:40,263 - etl.transformers.data_cleaner - INFO - Cleaning market data with shape (95, 7)
+2025-04-21 14:03:40,267 - etl.transformers.data_cleaner - INFO - Handled missing values: 0 before, 0 after
+2025-04-21 14:03:40,270 - etl.transformers.data_cleaner - INFO - Capped 7 outliers in Volume using IQR method
+2025-04-21 14:03:40,271 - etl.transformers.data_cleaner - INFO - Renamed columns: {'symbol': 'ticker'}
+2025-04-21 14:03:40,273 - etl.transformers.data_cleaner - INFO - Converted date to datetime
+2025-04-21 14:03:40,274 - etl.transformers.data_cleaner - INFO - Converted volume to integer
+2025-04-21 14:03:40,274 - etl.transformers.data_cleaner - INFO - Cleaned data shape: (95, 7)
+2025-04-21 14:03:40,275 - etl.transformers.data_cleaner - INFO - Engineering additional features
+2025-04-21 14:03:40,298 - etl.transformers.data_cleaner - INFO - Added 12 engineered features
+2025-04-21 14:03:40,299 - __main__ - INFO - Loading data to S3...
+2025-04-21 14:03:43,096 - etl.loaders.s3_loader - ERROR - Error loading Parquet to S3: An error occurred (AccessDenied) when calling the PutObject operation: Access Denied
+2025-04-21 14:03:43,097 - __main__ - ERROR - Pipeline failed: Failed to load data to S3
+2025-04-21 14:03:43,097 - __main__ - INFO - Pipeline completed in 3.76 seconds
+2025-04-21 14:05:40,701 - __main__ - INFO - Using default configuration
+2025-04-21 14:05:43,123 - utils.s3_utils - ERROR - Error checking bucket existence: An error occurred (403) when calling the HeadBucket operation: Forbidden
+2025-04-21 14:05:44,480 - utils.s3_utils - ERROR - Error setting up S3 lifecycle policy: An error occurred (AccessDenied) when calling the PutBucketLifecycleConfiguration operation: Access Denied
+2025-04-21 14:05:44,482 - etl.extractors.base_extractor - INFO - Initialized MarketDataExtractor for source: market_data
+2025-04-21 14:05:44,482 - etl.transformers.data_cleaner - INFO - Initialized DataCleaner
+2025-04-21 14:05:44,482 - etl.loaders.s3_loader - INFO - Initialized S3Loader for bucket: financial-data-analytics
+2025-04-21 14:05:44,482 - __main__ - INFO - Initialized Financial Data Pipeline
+2025-04-21 14:05:44,482 - __main__ - INFO - Starting Financial Data Pipeline
+2025-04-21 14:05:44,482 - __main__ - INFO - Extracting market data...
+2025-04-21 14:05:44,482 - etl.extractors.market_data - INFO - Extracting market data from market_data using yahoo_finance
+2025-04-21 14:05:45,497 - __main__ - INFO - Cleaning and transforming data...
+2025-04-21 14:05:45,497 - etl.transformers.data_cleaner - INFO - Cleaning market data with shape (95, 7)
+2025-04-21 14:05:45,497 - etl.transformers.data_cleaner - INFO - Handled missing values: 0 before, 0 after
+2025-04-21 14:05:45,514 - etl.transformers.data_cleaner - INFO - Capped 7 outliers in Volume using IQR method
+2025-04-21 14:05:45,514 - etl.transformers.data_cleaner - INFO - Renamed columns: {'symbol': 'ticker'}
+2025-04-21 14:05:45,530 - etl.transformers.data_cleaner - INFO - Converted date to datetime
+2025-04-21 14:05:45,531 - etl.transformers.data_cleaner - INFO - Converted volume to integer
+2025-04-21 14:05:45,531 - etl.transformers.data_cleaner - INFO - Cleaned data shape: (95, 7)
+2025-04-21 14:05:45,531 - etl.transformers.data_cleaner - INFO - Engineering additional features
+2025-04-21 14:05:45,564 - etl.transformers.data_cleaner - INFO - Added 12 engineered features
+2025-04-21 14:05:45,564 - __main__ - INFO - Loading data to S3...
+2025-04-21 14:05:49,039 - etl.loaders.s3_loader - ERROR - Error loading Parquet to S3: An error occurred (AccessDenied) when calling the PutObject operation: Access Denied
+2025-04-21 14:05:49,039 - __main__ - ERROR - Pipeline failed: Failed to load data to S3
+2025-04-21 14:05:49,046 - __main__ - INFO - Pipeline completed in 4.56 seconds
+2025-04-21 14:07:11,551 - __main__ - INFO - Using default configuration
+2025-04-21 14:07:13,399 - utils.s3_utils - INFO - Created bucket 'financial-data-analytics-jahnavi-123' in region 'us-east-1'
+2025-04-21 14:07:14,661 - utils.s3_utils - INFO - Set up lifecycle policy for bucket 'financial-data-analytics-jahnavi-123'
+2025-04-21 14:07:14,665 - etl.extractors.base_extractor - INFO - Initialized MarketDataExtractor for source: market_data
+2025-04-21 14:07:14,665 - etl.transformers.data_cleaner - INFO - Initialized DataCleaner
+2025-04-21 14:07:14,665 - etl.loaders.s3_loader - INFO - Initialized S3Loader for bucket: financial-data-analytics-jahnavi-123
+2025-04-21 14:07:14,671 - __main__ - INFO - Initialized Financial Data Pipeline
+2025-04-21 14:07:14,671 - __main__ - INFO - Starting Financial Data Pipeline
+2025-04-21 14:07:14,671 - __main__ - INFO - Extracting market data...
+2025-04-21 14:07:14,671 - etl.extractors.market_data - INFO - Extracting market data from market_data using yahoo_finance
+2025-04-21 14:07:15,674 - __main__ - INFO - Cleaning and transforming data...
+2025-04-21 14:07:15,674 - etl.transformers.data_cleaner - INFO - Cleaning market data with shape (95, 7)
+2025-04-21 14:07:15,694 - etl.transformers.data_cleaner - INFO - Handled missing values: 0 before, 0 after
+2025-04-21 14:07:15,702 - etl.transformers.data_cleaner - INFO - Capped 7 outliers in Volume using IQR method
+2025-04-21 14:07:15,702 - etl.transformers.data_cleaner - INFO - Renamed columns: {'symbol': 'ticker'}
+2025-04-21 14:07:15,705 - etl.transformers.data_cleaner - INFO - Converted date to datetime
+2025-04-21 14:07:15,709 - etl.transformers.data_cleaner - INFO - Converted volume to integer
+2025-04-21 14:07:15,709 - etl.transformers.data_cleaner - INFO - Cleaned data shape: (95, 7)
+2025-04-21 14:07:15,709 - etl.transformers.data_cleaner - INFO - Engineering additional features
+2025-04-21 14:07:15,743 - etl.transformers.data_cleaner - INFO - Added 12 engineered features
+2025-04-21 14:07:15,743 - __main__ - INFO - Loading data to S3...
+2025-04-21 14:07:17,046 - etl.loaders.s3_loader - INFO - Uploaded DataFrame with 95 rows to s3://financial-data-analytics-jahnavi-123/processed/market_data_20250421/20250421_140715.parquet
+2025-04-21 14:07:17,048 - __main__ - INFO - Data loaded successfully to s3://financial-data-analytics-jahnavi-123/processed/market_data_20250421/20250421_140715.parquet
+2025-04-21 14:07:17,050 - __main__ - INFO - Pipeline completed in 2.38 seconds
+2025-04-21 14:32:08,301 - __main__ - INFO - Using default configuration
+2025-04-21 14:32:09,140 - utils.s3_utils - INFO - Bucket 'financial-data-analytics-jahnavi-123' already exists
+2025-04-21 14:32:10,258 - utils.s3_utils - INFO - Set up lifecycle policy for bucket 'financial-data-analytics-jahnavi-123'
+2025-04-21 14:32:10,262 - etl.extractors.base_extractor - INFO - Initialized MarketDataExtractor for source: market_data
+2025-04-21 14:32:10,263 - etl.transformers.data_cleaner - INFO - Initialized DataCleaner
+2025-04-21 14:32:10,263 - etl.loaders.s3_loader - INFO - Initialized S3Loader for bucket: financial-data-analytics-jahnavi-123
+2025-04-21 14:32:10,265 - __main__ - INFO - Initialized Financial Data Pipeline
+2025-04-21 14:32:10,265 - __main__ - INFO - Starting Financial Data Pipeline
+2025-04-21 14:32:10,265 - __main__ - INFO - Extracting market data...
+2025-04-21 14:32:10,273 - etl.extractors.market_data - INFO - Extracting market data from market_data using yahoo_finance
+2025-04-21 14:32:11,190 - __main__ - INFO - Cleaning and transforming data...
+2025-04-21 14:32:11,190 - etl.transformers.data_cleaner - INFO - Cleaning market data with shape (95, 7)
+2025-04-21 14:32:11,204 - etl.transformers.data_cleaner - INFO - Handled missing values: 0 before, 0 after
+2025-04-21 14:32:11,214 - etl.transformers.data_cleaner - INFO - Capped 7 outliers in Volume using IQR method
+2025-04-21 14:32:11,214 - etl.transformers.data_cleaner - INFO - Renamed columns: {'symbol': 'ticker'}
+2025-04-21 14:32:11,214 - etl.transformers.data_cleaner - INFO - Converted date to datetime
+2025-04-21 14:32:11,214 - etl.transformers.data_cleaner - INFO - Converted volume to integer
+2025-04-21 14:32:11,214 - etl.transformers.data_cleaner - INFO - Cleaned data shape: (95, 7)
+2025-04-21 14:32:11,214 - etl.transformers.data_cleaner - INFO - Engineering additional features
+2025-04-21 14:32:11,258 - etl.transformers.data_cleaner - INFO - Added 12 engineered features
+2025-04-21 14:32:11,259 - __main__ - INFO - Loading data to S3...
+2025-04-21 14:32:12,786 - etl.loaders.s3_loader - INFO - Uploaded DataFrame with 95 rows to s3://financial-data-analytics-jahnavi-123/processed/market_data_20250421/20250421_143211.parquet
+2025-04-21 14:32:12,786 - __main__ - INFO - Data loaded successfully to s3://financial-data-analytics-jahnavi-123/processed/market_data_20250421/20250421_143211.parquet
+2025-04-21 14:32:12,788 - __main__ - INFO - Pipeline completed in 2.52 seconds
+2025-04-21 14:42:18,127 - __main__ - INFO - Using default configuration
+2025-04-21 14:42:19,719 - utils.s3_utils - INFO - Bucket 'financial-data-analytics-jahnavi-123' already exists
+2025-04-21 14:42:20,843 - utils.s3_utils - INFO - Set up lifecycle policy for bucket 'financial-data-analytics-jahnavi-123'
+2025-04-21 14:42:20,843 - etl.extractors.base_extractor - INFO - Initialized MarketDataExtractor for source: market_data
+2025-04-21 14:42:20,843 - etl.transformers.data_cleaner - INFO - Initialized DataCleaner
+2025-04-21 14:42:20,843 - etl.loaders.s3_loader - INFO - Initialized S3Loader for bucket: financial-data-analytics-jahnavi-123
+2025-04-21 14:42:20,858 - __main__ - INFO - Initialized Financial Data Pipeline
+2025-04-21 14:42:20,858 - __main__ - INFO - Starting Financial Data Pipeline
+2025-04-21 14:42:20,858 - __main__ - INFO - Extracting market data...
+2025-04-21 14:42:20,858 - etl.extractors.market_data - INFO - Extracting market data from market_data using yahoo_finance
+2025-04-21 14:42:21,802 - __main__ - INFO - Cleaning and transforming data...
+2025-04-21 14:42:21,804 - etl.transformers.data_cleaner - INFO - Cleaning market data with shape (95, 7)
+2025-04-21 14:42:21,812 - etl.transformers.data_cleaner - INFO - Handled missing values: 0 before, 0 after
+2025-04-21 14:42:21,825 - etl.transformers.data_cleaner - INFO - Capped 7 outliers in Volume using IQR method
+2025-04-21 14:42:21,829 - etl.transformers.data_cleaner - INFO - Renamed columns: {'symbol': 'ticker'}
+2025-04-21 14:42:21,829 - etl.transformers.data_cleaner - INFO - Converted date to datetime
+2025-04-21 14:42:21,829 - etl.transformers.data_cleaner - INFO - Converted volume to integer
+2025-04-21 14:42:21,829 - etl.transformers.data_cleaner - INFO - Cleaned data shape: (95, 7)
+2025-04-21 14:42:21,829 - etl.transformers.data_cleaner - INFO - Engineering additional features
+2025-04-21 14:42:21,855 - etl.transformers.data_cleaner - INFO - Added 12 engineered features
+2025-04-21 14:42:21,871 - __main__ - INFO - Loading data to S3...
+2025-04-21 14:42:23,395 - etl.loaders.s3_loader - INFO - Uploaded DataFrame with 95 rows to s3://financial-data-analytics-jahnavi-123/processed/market_data_20250421/20250421_144221.parquet
+2025-04-21 14:42:23,395 - __main__ - INFO - Data loaded successfully to s3://financial-data-analytics-jahnavi-123/processed/market_data_20250421/20250421_144221.parquet
+2025-04-21 14:42:23,395 - __main__ - INFO - Pipeline completed in 2.54 seconds
+2025-04-22 13:08:44,032 - __main__ - INFO - Using default configuration
+2025-04-22 13:08:45,828 - utils.s3_utils - INFO - Bucket 'financial-data-analytics-jahnavi-123' already exists
+2025-04-22 13:08:46,326 - utils.s3_utils - INFO - Set up lifecycle policy for bucket 'financial-data-analytics-jahnavi-123'
+2025-04-22 13:08:46,338 - etl.extractors.base_extractor - INFO - Initialized MarketDataExtractor for source: market_data
+2025-04-22 13:08:46,338 - etl.transformers.data_cleaner - INFO - Initialized DataCleaner
+2025-04-22 13:08:46,338 - etl.loaders.s3_loader - INFO - Initialized S3Loader for bucket: financial-data-analytics-jahnavi-123
+2025-04-22 13:08:46,347 - __main__ - INFO - Initialized Financial Data Pipeline
+2025-04-22 13:08:46,347 - __main__ - INFO - Starting Financial Data Pipeline
+2025-04-22 13:08:46,347 - __main__ - INFO - Extracting market data...
+2025-04-22 13:08:46,347 - etl.extractors.market_data - INFO - Extracting market data from market_data using yahoo_finance
+2025-04-22 13:08:51,405 - __main__ - INFO - Cleaning and transforming data...
+2025-04-22 13:08:51,405 - etl.transformers.data_cleaner - INFO - Cleaning market data with shape (100, 7)
+2025-04-22 13:08:51,447 - etl.transformers.data_cleaner - INFO - Handled missing values: 0 before, 0 after
+2025-04-22 13:08:51,461 - etl.transformers.data_cleaner - INFO - Capped 7 outliers in Volume using IQR method
+2025-04-22 13:08:51,461 - etl.transformers.data_cleaner - INFO - Renamed columns: {'symbol': 'ticker'}
+2025-04-22 13:08:51,461 - etl.transformers.data_cleaner - INFO - Converted date to datetime
+2025-04-22 13:08:51,461 - etl.transformers.data_cleaner - INFO - Converted volume to integer
+2025-04-22 13:08:51,461 - etl.transformers.data_cleaner - INFO - Cleaned data shape: (100, 7)
+2025-04-22 13:08:51,461 - etl.transformers.data_cleaner - INFO - Engineering additional features
+2025-04-22 13:08:51,494 - etl.transformers.data_cleaner - INFO - Added 12 engineered features
+2025-04-22 13:08:51,494 - __main__ - INFO - Loading data to S3...
+2025-04-22 13:08:52,276 - etl.loaders.s3_loader - INFO - Uploaded DataFrame with 100 rows to s3://financial-data-analytics-jahnavi-123/processed/market_data_20250422/20250422_130851.parquet
+2025-04-22 13:08:52,276 - __main__ - INFO - Data loaded successfully to s3://financial-data-analytics-jahnavi-123/processed/market_data_20250422/20250422_130851.parquet
+2025-04-22 13:08:52,276 - __main__ - INFO - Pipeline completed in 5.93 seconds
